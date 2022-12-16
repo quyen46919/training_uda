@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .hover {
+                position: relative;
+                width: 200px;
+                height: 40px;
+                cursor: pointer;
+            }
+            .hover:hover::before {
+                content: attr(tooltip);
+                display: block;
+                background-color: palevioletred;
+                position: absolute;
+                width: fit-content;
+                right: -50%;
+                top: 0px;
+                padding: 10px;
+                box-sizing: border-box;
+                color: white;
+                border-radius: 5px;
+                animation: leftMove 0.3s forwards;
+                z-index: 2;
+            }
+            .hover:hover::after {
+                content: '';
+                position: absolute;
+                top: 13px;
+                left: 200px;
+                width: 10px;
+                height: 10px;
+                background-color: palevioletred;
+                transform: rotate(45deg);
+                z-index: 1;
+                animation: leftMove 0.3s forwards;
+            }
+            @keyframes leftMove {
+                from {
+                    left: 250px;
+                    opacity: 0;
+                }
+                to {
+                    left: 200px;
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <button class="hover" tooltip="Homepage">Hover me</button>
+
+        <div class="card" source="${song.getUrl()}">sadjksaldjksla</div>
+        <script></script>
+    </body>
+</html>
